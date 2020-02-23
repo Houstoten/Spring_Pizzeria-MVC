@@ -2,10 +2,12 @@ package com.pizzahi.repository;
 
 import com.pizzahi.model.Customer;
 import com.pizzahi.model.Order;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class CustomerRepoImpl implements CustomerRepository{
     private List<Customer> customers = new ArrayList<>();
 
