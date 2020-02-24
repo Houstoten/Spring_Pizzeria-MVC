@@ -1,10 +1,25 @@
 package com.pizzahi.model;
 
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "customer")
 public class Customer {
+
+    @Id
+    @Column(name = "customer_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "mail")
     private String mail;
+
+    @OneToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name = "order_")
     private Order order;
 
     public int getId() {

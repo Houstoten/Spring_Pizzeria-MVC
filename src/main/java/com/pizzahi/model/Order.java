@@ -1,13 +1,29 @@
 package com.pizzahi.model;
 
 
+import net.bytebuddy.dynamic.loading.InjectionClassLoader;
+
+import javax.persistence.*;
 import java.util.Objects;
 
+@Entity
+@Table(name = "order_")
 public class Order {
+    @Column(name = "count")
     private int count;
+
+    @Column(name = "type")
     private String type;
+
+    @Column(name = "size")
     private String Size;
+
+    @Column(name = "date_time")
     private String datetime;
+
+    @Id
+    @Column(name = "order_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     public int getId() {

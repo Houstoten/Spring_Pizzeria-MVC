@@ -6,6 +6,7 @@ import com.pizzahi.model.PizzaSize;
 import com.pizzahi.model.PizzaType;
 import com.pizzahi.service.CustomerService;
 import com.pizzahi.service.CustomerServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,9 +20,15 @@ import java.util.List;
 @Controller
 public class CustomerController {
 
-    private CustomerService customerService = new CustomerServiceImpl();
+    private CustomerService customerService;
     private List<String> sizes = PizzaSize.getInstance().getAllSizes();
     private List<String> types = PizzaType.getInstance().getAllTypes();
+
+    @Autowired
+    public CustomerController(final CustomerService customerService) {
+        this.customerService = customerService;
+    }
+
     @RequestMapping(value = "/main_page", method = RequestMethod.GET)
     public String returnFormInputs(Model model) {
         model.addAttribute("SizesList", sizes);
@@ -42,6 +49,7 @@ public class CustomerController {
         Customer customer = new Customer();
         customer.setName(name);
         customer.setMail(email);
+        System.out.println("Before-Post Method Here!");
         customerService.save(customer, order);
         System.out.println("Post Method Here!");
         return "redirect:main_page";
