@@ -16,6 +16,9 @@ public class CustomerServiceImpl implements CustomerService {
     @Autowired
     private CustomerRepository customerRepo;
 
+    @Autowired
+    private EmailService emailService;
+
     @Transactional
     public void save(Customer customer, Order order) {
         if (customer != null) {
@@ -34,6 +37,8 @@ public class CustomerServiceImpl implements CustomerService {
             customer.setOrder(order);
             customerRepo.save(customer);
             System.out.println("Saved: " + customer.toString());
+            emailService.sendLetter(customer.getName(), customer.getMail(),
+                   order.getType(), order.getSize(), order.getCount(), order.getDatetime());
         }
     }
 

@@ -8,6 +8,7 @@ public class WebAppInitialiser extends AbstractAnnotationConfigDispatcherServlet
         return new Class[]{HibernateConfig.class};
     }
 
+
     @Override
     protected Class<?>[] getServletConfigClasses() {
         return new Class[]{WebConfig.class};
