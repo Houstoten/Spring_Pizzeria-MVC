@@ -6,6 +6,7 @@ import com.pizzahi.model.PizzaSize;
 import com.pizzahi.model.PizzaType;
 import com.pizzahi.service.CustomerService;
 import com.pizzahi.service.CustomerServiceImpl;
+import com.pizzahi.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +25,8 @@ public class CustomerController {
 
     private CustomerService customerService;
 
+    @Autowired
+    private EmailService emailService;
 
     private List<String> sizes = PizzaSize.getInstance().getAllSizes();
     private List<String> types = PizzaType.getInstance().getAllTypes();
@@ -41,22 +44,28 @@ public class CustomerController {
         return "main_page";
     }
 
-    @RequestMapping(value = "/main_page", method = RequestMethod.POST)
+    @RequestMapping(value = "/order_form", produces = {"application/xml; charset=UTF-8"}, method = RequestMethod.POST)
     public String getNewCustomerAndOrder(@RequestParam(value = "name") String name, @RequestParam(value = "email") String email,
-                                       @RequestParam(value = "typesItem") String typesItem, @RequestParam(value = "sizesItem") String sizesItem,
-                                       @RequestParam(value = "count") int count) throws UnsupportedEncodingException {
+                                         @RequestParam(value = "typesItem") String typesItem, @RequestParam(value = "sizesItem") String sizesItem,
+                                         @RequestParam(value = "count") int count) throws UnsupportedEncodingException {
         Order order = new Order();
-        order.setSize(new String(sizesItem.getBytes(), StandardCharsets.UTF_8));
-        order.setType(new String(typesItem.getBytes(), StandardCharsets.UTF_8));
+        order.setSize(sizesItem);
+        order.setType(typesItem);
         order.setCount(count);
         order.setDatetime(DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss").format(LocalDateTime.now()).toString());
         Customer customer = new Customer();
-        customer.setName(new String(name.getBytes(), StandardCharsets.UTF_8));
-        customer.setMail(new String(email.getBytes(), StandardCharsets.UTF_8));
+        customer.setName(name);
+        customer.setMail(email);
         System.out.println("Before-Post Method Here!");
         customerService.save(customer, order);
         System.out.println("Post Method Here!");
         return "redirect:main_page";
         //!ssgtdds12y33
+    }
+
+    @RequestMapping(value = "/info_form", produces = {"application/xml; charset=UTF-8"}, method = RequestMethod.POST)
+    public String sendInfo(@RequestParam(value = "name") String name, @RequestParam(value = "email") String email) {
+        emailService.sendInfoLetter(name, email, DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss").format(LocalDateTime.now()).toString());
+        return "redirect:main_page";
     }
 }

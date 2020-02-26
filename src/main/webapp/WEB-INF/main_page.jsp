@@ -23,7 +23,7 @@
             <div class="header_contacts">
                 <a class="header_phone" href="tel:380123456789"> +380123456789</a>
                 <a class="header_email" href="mail:email-example@mail.com"> email-example@mail.com</a>
-                <a data-fancybox data-src="#modal" href="javascript:;" class="header_btn" href="#"> Консультация с
+                <a data-fancybox data-src="#info_modal" href="javascript:;" class="header_btn" href="#"> Консультация с
                     пиццей</a>
             </div>
         </div>
@@ -125,7 +125,7 @@
                 </div>
                 <div class="services_item-btn">
                     <a class="services_item-link" href="#">Подробнее</a>
-                    <a data-fancybox data-src="#modal" href="javascript:;" class="services_btn default_btn">
+                    <a data-fancybox data-src="#info_modal" href="javascript:;" class="services_btn default_btn">
                         Заказать
                     </a>
                 </div>
@@ -141,7 +141,7 @@
                 </div>
                 <div class="services_item-btn">
                     <a class="services_item-link" href="#">Подробнее</a>
-                    <a data-fancybox data-src="#modal" href="javascript:;" class="services_btn default_btn">
+                    <a data-fancybox data-src="#info_modal" href="javascript:;" class="services_btn default_btn">
                         Заказать
                     </a>
                 </div>
@@ -157,7 +157,7 @@
                 </div>
                 <div class="services_item-btn">
                     <a class="services_item-link" href="#">Подробнее</a>
-                    <a data-fancybox data-src="#modal" href="javascript:;" class="services_btn default_btn">
+                    <a data-fancybox data-src="#info_modal" href="javascript:;" class="services_btn default_btn">
                         Заказать
                     </a>
                 </div>
@@ -175,13 +175,13 @@
             В нашей команде работают только профессионалы высшего звена пиццеров.
             Обратившись за помощью к нашей команде, ваша пицца окажется в надёжных животах.
         </div>
-        <a data-fancybox data-src="#modal" href="javascript:;" class="about_btn default_btn">
+        <a data-fancybox data-src="#info_modal" href="javascript:;" class="about_btn default_btn">
             Узнать больше
         </a>
     </div>
 </section>
 
-<form id="modal" action="/main_page" class="default_modal" method="POST" onsubmit="alert('Заказ принят в работу!');">
+<form id="modal" action="${pageContext.request.contextPath}/order_form" class="default_modal" method="POST" onsubmit="alert('Заказ принят в работу!');">
     <div class="modal_title">
         Введите пожалуйства ваши контактные данные ниже для получения дополнительных материалов по вашему вопросу
     </div>
@@ -243,6 +243,32 @@
         </div>
     </div>
 </form>
+
+<form id="info_modal" action="${pageContext.request.contextPath}/info_form" class="default_modal" method="POST" onsubmit="alert('Информация отправлена на указанный адрес');">
+    <div class="modal_title">
+        Введите пожалуйства ваши контактные данные ниже для получения дополнительных материалов по вашему вопросу
+    </div>
+            <div class="modal_nameinput-item">
+                <label>
+                    <div class="modal_name-info">
+                        Укажите Ваше имя:
+                    </div>
+                    <input name="name" class="name_input" type="text" maxlength="30" required>
+                </label>
+            </div>
+            <div class="modal_emailinput-item">
+                <label>
+                    <div class="modal_email-info">
+                        Укажите контактный адрес электронной почты:
+                    </div>
+                    <input name="email" class="email_input" type="text" maxlength="30" required>
+                </label>
+            </div>
+            <div class="send_all-item">
+                <input class="default_btn submit_btn" type="submit" value="Получить информацию">
+            </div>
+</form>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="../webres/js/jquery.fancybox.min.js"></script>
 <script src="../webres/js/slick.min.js"></script>

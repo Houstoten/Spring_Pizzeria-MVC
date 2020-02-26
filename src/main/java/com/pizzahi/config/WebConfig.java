@@ -22,6 +22,7 @@ public class WebConfig implements WebMvcConfigurer {
         return resolver;
     }
 
+
     public void addResourceHandlers(final ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/webres/**").addResourceLocations("/webres/");
     }

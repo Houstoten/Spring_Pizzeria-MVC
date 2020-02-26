@@ -326,7 +326,13 @@ font-family: Arial, Helvetica, sans-serif;
 .modal_name, .modal_email, .pizza_size, .pizza_type, .pizza_count{
     font-size: 18px;
     padding-bottom: 5px;
-    max-width: 200px;
+    max-width: 250px;
+    text-align: center;
+}
+.modal_email-info, .modal_name-info{
+    font-size: 18px;
+    padding-bottom: 5px;
+    text-align: center;
 }
 .modal_nameinput-item, .modal_emailinput-item, .pizza_count-item, .pizza_size-item, .pizza_type-item, .send_all-item{
     padding-bottom: 15px;

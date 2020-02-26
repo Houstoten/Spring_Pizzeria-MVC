@@ -21,24 +21,14 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Transactional
     public void save(Customer customer, Order order) {
-        if (customer != null) {
-//            List<Customer> customers = customerRepo.getAll();
-//            if (!customers.isEmpty()) {
-//                System.out.println("DB size is "+ customers.size());
-//                customer.setId(customers.size() + 1);
-//            } else {
-//                customer.setId(0);
-//            }
-//            if (order != null) {
-//                customer.setOrder(order);
-//                order.setId(customer.getId());
-//            }
+        if (customer != null && customer.getName() != null && customer.getMail() != null && order.getCount() > 0
+                && order.getCount() < 255 && order.getSize() != null && order.getType() != null) {
             System.out.println("Before-Saved Service Here!");
             customer.setOrder(order);
             customerRepo.save(customer);
             System.out.println("Saved: " + customer.toString());
             emailService.sendLetter(customer.getName(), customer.getMail(),
-                   order.getType(), order.getSize(), order.getCount(), order.getDatetime());
+                    order.getType(), order.getSize(), order.getCount(), order.getDatetime());
         }
     }
 
