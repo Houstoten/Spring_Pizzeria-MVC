@@ -1,0 +1,98 @@
+@media (max-width: 700px){
+    .header_btn{
+        float: none;
+        width: 100%;
+    }
+    .header_contacts{
+        text-align: center;
+    }
+    .header_btn::before{
+        content: none;
+        display: none;
+    }
+    .header_btn-menu{
+        display: block;
+    }
+    .menu ul{
+        display: none;
+        position: absolute;
+        right: 0;
+        left: 50%;
+        z-index: 5;
+        margin-top: 20px;
+    }
+    .menu li{
+        margin-top: 5px;
+        display: block;
+        padding-top: 0;
+        
+    }
+    .menu a{
+        display: block;
+        background-color: rgb(255, 235, 124);
+        padding-top: 20px;
+        padding-bottom: 20px;
+        border: 2px solid black;
+    }
+    .menu li+li{
+        padding-left: 0;
+    }
+}
+@media (max-width: 470px){
+    .header_btn::before{
+        display: block;
+    }
+    .services_title-box{
+        display: block;
+        padding-left: 0;
+    }
+    .services_title-box::before{
+        display: none;
+    }
+    .about{
+        min-height: 350px;
+    }
+    .modal_title{
+        text-align: center;
+    }
+    .modal_sides{
+        display: block;
+    }
+    .slider_item-content{
+        font-size: 14px;
+    }
+    .slider_title{
+        font-size: 20px;
+    }
+    .about_btn{
+        color: white;
+    }
+}
+@media (max-width: 375px){
+    .header_email{
+        padding-right: 30px;
+    }
+}
+@media(min-width:700px){
+    .menu ul{
+        display: block !important;
+    }
+}
+@media(max-width:700px){
+    .slider .slick-btn{
+        display: none !important;
+    }
+}
+@media(max-width:950px){
+    .services_items{
+        display: block;
+    }
+    .services_item{
+        max-width: 80%;
+        min-height: 330px;
+        margin: 30px auto;
+    }
+    .services_title{
+        display: block;
+    }
+}

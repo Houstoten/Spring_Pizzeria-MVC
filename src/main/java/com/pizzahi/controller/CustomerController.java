@@ -5,7 +5,6 @@ import com.pizzahi.model.Order;
 import com.pizzahi.model.PizzaSize;
 import com.pizzahi.model.PizzaType;
 import com.pizzahi.service.CustomerService;
-import com.pizzahi.service.CustomerServiceImpl;
 import com.pizzahi.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
-import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -37,10 +36,10 @@ public class CustomerController {
     }
 
     @RequestMapping(value = "/main_page", method = RequestMethod.GET)
-    public String returnFormInputs(Model model) {
+    public String returnFormInputs(Model model, HttpServletRequest request) {
         model.addAttribute("SizesList", sizes);
         model.addAttribute("TypesList", types);
-        System.out.println("Get Method Here!");
+        System.out.println("Get Method Here for "+request.getRemoteAddr());
         return "main_page";
     }
 
@@ -66,6 +65,6 @@ public class CustomerController {
     @RequestMapping(value = "/info_form", produces = {"application/xml; charset=UTF-8"}, method = RequestMethod.POST)
     public String sendInfo(@RequestParam(value = "name") String name, @RequestParam(value = "email") String email) {
         emailService.sendInfoLetter(name, email, DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss").format(LocalDateTime.now()).toString());
-        return "redirect:main_page";
+        return "/WEB-INF/main_page.jsp";
     }
 }

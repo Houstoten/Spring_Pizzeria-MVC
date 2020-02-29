@@ -22,7 +22,8 @@ public class CustomerServiceImpl implements CustomerService {
     @Transactional
     public void save(Customer customer, Order order) {
         if (customer != null && customer.getName() != null && customer.getMail() != null && order.getCount() > 0
-                && order.getCount() < 255 && order.getSize() != null && order.getType() != null) {
+                && order.getCount() < 255 && order.getSize() != null && order.getType() != null && customer.getName().length() < 30
+                && customer.getMail().length() < 50 && order.getType().length() < 30 && order.getSize().length() < 20) {
             System.out.println("Before-Saved Service Here!");
             customer.setOrder(order);
             customerRepo.save(customer);

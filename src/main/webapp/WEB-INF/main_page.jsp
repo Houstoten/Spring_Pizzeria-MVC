@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="../webres/css/style.css">
     <link rel="stylesheet" href="../webres/css/jquery.fancybox.min.css">
     <link rel="stylesheet" href="../webres/css/slick.css">
+    <link rel="stylesheet" href="../webres/css/media.css">
 </head>
 
 <body>
@@ -38,6 +39,9 @@
                     <a href="#">PizzaHi Restaurant</a>
                 </div>
                 <nav class="menu">
+                    <div class="header_btn-menu">
+                        <span class="icon-menu"></span>
+                    </div>
                     <ul>
                         <li><a href="#">Главная</a></li>
                         <li><a href="#">О пицце</a></li>

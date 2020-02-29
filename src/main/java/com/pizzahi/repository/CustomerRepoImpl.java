@@ -21,7 +21,12 @@ public class CustomerRepoImpl implements CustomerRepository{
 
     public void save(Customer customer) {
         Session session = sessionFactory.getCurrentSession();
-        session.persist(customer);
+        try {
+            session.persist(customer);
+        }catch (Exception ex){
+            System.out.println("Unhandled encoding");
+            ex.printStackTrace();
+        }
     }
 
     public void delete(Customer customer) {

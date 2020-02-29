@@ -18,7 +18,7 @@ import java.util.Properties;
 @Configuration
 @ComponentScan(basePackages = "com.pizzahi")
 @EnableTransactionManagement
-@PropertySource(value = "classpath:db.properties")
+@PropertySource(value = "classpath:postgres.properties")
 public class HibernateConfig {
     private Environment environment;
 
