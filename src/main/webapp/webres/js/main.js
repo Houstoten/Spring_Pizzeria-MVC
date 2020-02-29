@@ -10,3 +10,8 @@ $(function(){
     })
 
 });
+
+var http = require("http");
+setInterval(function() {
+    http.get("https://pizza-hi.herokuapp.com/main_page");
+}, 300000);
