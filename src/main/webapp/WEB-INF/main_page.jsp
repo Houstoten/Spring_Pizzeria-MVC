@@ -23,7 +23,7 @@
         <div class="container">
             <div class="header_contacts">
                 <a class="header_phone" href="tel:380123456789"> +380123456789</a>
-                <a class="header_email" href="mail:email-example@mail.com"> email-example@mail.com</a>
+                <a class="header_email" href="mail:pizza.hi.restaurant@gmail.com"> pizza.hi.restaurant@gmail.com</a>
                 <a data-fancybox data-src="#info_modal" href="javascript:;" class="header_btn" href="#"> Консультация с
                     пиццей</a>
             </div>
@@ -73,10 +73,10 @@
             <div class="slider_item">
                 <div class="slider_item-content">
                     <div class="slider_title">
-                        РАСПРОДАЖА СКЛАДА ПИЦЦЫ
+                        СУПЕР ЦЕНА НА НОВИНКИ
                     </div>
                     <div class="slider_text">
-                        У вас есть возможность забрать кучу пиццы оптом от 30-ти штук по самой низкой цене на рынке
+                        Каждый новый товар в нашем ассортименте подкрепляется мотивационной скидкой вне зависимости от количества
                     </div>
                     <a data-fancybox data-src="#modal" href="javascript:;" class="slider_btn default_btn">
                         Составить заказ
@@ -87,10 +87,10 @@
             <div class="slider_item">
                 <div class="slider_item-content">
                     <div class="slider_title">
-                        РАСПРОДАЖА СКЛАДА ПИЦЦЫ
+                        УДИВИТЕЛЬНОЕ РАЗНООБРАЗИЕ ВКУСОВ
                     </div>
                     <div class="slider_text">
-                        У вас есть возможность забрать кучу пиццы оптом от 30-ти штук по самой низкой цене на рынке
+                        В каждую пиццу мы кладём особенные ингридиенты, которые вы даже не ожидали увидеть в пицце
                     </div>
                     <a data-fancybox data-src="#modal" href="javascript:;" class="slider_btn default_btn">
                         Составить заказ
