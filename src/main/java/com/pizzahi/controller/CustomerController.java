@@ -59,12 +59,11 @@ public class CustomerController {
         customerService.save(customer, order);
         System.out.println("Post Method Here!");
         return "redirect:main_page";
-        //!ssgtdds12y33
     }
 
     @RequestMapping(value = "/info_form", produces = {"application/xml; charset=UTF-8"}, method = RequestMethod.POST)
     public String sendInfo(@RequestParam(value = "name") String name, @RequestParam(value = "email") String email) {
         emailService.sendInfoLetter(name, email, DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss").format(LocalDateTime.now()).toString());
-        return "/WEB-INF/main_page.jsp";
+        return "redirect:main_page";
     }
 }
